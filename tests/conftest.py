@@ -15,14 +15,8 @@ def driver():
     if os.getenv('CI'):
         options.add_argument('--headless=new')
 
-    service = Service(
-        executable_path='chromedriver.exe'
-    )
-
-    driver = webdriver.Chrome(
-        service=service,
-        options=options
-    )
+# Tidak perlu lagi menggunakan parameter service dengan executable_path
+    driver = webdriver.Chrome(options=options)
 
     yield driver
 
